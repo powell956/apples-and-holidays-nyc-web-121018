@@ -77,4 +77,5 @@ def all_holidays_with_bbq(holiday_hash)
       bbq_holidays << supplies.select { |supply| supply == "BBQ"}
     end
   end
+  bbq_holidays
 end
