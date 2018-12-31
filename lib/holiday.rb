@@ -74,8 +74,26 @@ def all_holidays_with_bbq(holiday_hash)
   bbq_holidays = []
   holiday_hash.each do |season, holiday|
     holiday.each do |holiday, supplies|
-      bbq_holidays << supplies.any? { |supply| supply == "BBQ"}
+      if supplies.any? { |supply| supply == "BBQ" }
+        bbq_holidays << holiday.select { |supply| supply == "BBQ"}
+      end
     end
   end
   bbq_holidays.flatten
 end
+
+# {
+#   :winter => {
+#     :christmas => ["Lights", "Wreath"],
+#     :new_years => ["Party Hats"]
+#   },
+#   :summer => {
+#     :fourth_of_july => ["Fireworks", "BBQ"]
+#   },
+#   :fall => {
+#     :thanksgiving => ["Turkey"]
+#   },
+#   :spring => {
+#     :memorial_day => ["BBQ"]
+#   }
+# }
